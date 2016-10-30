@@ -8,7 +8,7 @@ import responses.*;
 public class FootballApiTest {
 
     @Test
-    public void testShouldBeAbleToGetSeasons() throws Exception {
+    public void testShouldRetrieveSeasons() throws Exception {
         FootballRequestBuilder builder = new FootballRequestBuilder("soccerseasons/");
 
         FootballApi api = new FootballApi();

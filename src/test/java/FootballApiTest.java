@@ -1,19 +1,16 @@
 import api.FootballApi;
-import api.FootballRequestBuilder;
 import junit.framework.Assert;
 import org.junit.Test;
-
 import responses.*;
 
 public class FootballApiTest {
 
     @Test
     public void testShouldRetrieveSeasons() throws Exception {
-        FootballRequestBuilder builder = new FootballRequestBuilder("http://api.football-data.org/v1/soccerseasons/");
 
         FootballApi api = new FootballApi();
 
-        Season[] seasons = api.getResponse(builder, Season[].class);
+        Season[] seasons = api.getResponse("http://api.football-data.org/v1/soccerseasons/", Season[].class);
 
         Season season = seasons[0];
 
@@ -24,11 +21,10 @@ public class FootballApiTest {
 
     @Test
     public void testShouldRetrieveLeague() throws Exception {
-        FootballRequestBuilder builder = new FootballRequestBuilder("http://api.football-data.org/v1/soccerseasons/426/leagueTable");
 
         FootballApi api = new FootballApi();
 
-        LeagueTable table = api.getResponse(builder, LeagueTable.class);
+        LeagueTable table = api.getResponse("http://api.football-data.org/v1/soccerseasons/426/leagueTable", LeagueTable.class);
         Standing standing = table.getStanding()[0];
 
         Assert.assertNotNull(table.getLeagueCaption());
@@ -39,10 +35,9 @@ public class FootballApiTest {
 
     @Test
     public void testShouldRetrieveFixtures() throws Exception {
-        FootballRequestBuilder builder = new FootballRequestBuilder("http://api.football-data.org/v1/soccerseasons/427/fixtures");
 
         FootballApi api = new FootballApi();
-        SeasonFixtures seasonFixtures = api.getResponse(builder, SeasonFixtures.class);
+        SeasonFixtures seasonFixtures = api.getResponse("http://api.football-data.org/v1/soccerseasons/427/fixtures", SeasonFixtures.class);
         Fixture fixture = seasonFixtures.getFixtures()[0];
 
         Assert.assertNotSame(0, seasonFixtures.getCount());
@@ -54,10 +49,9 @@ public class FootballApiTest {
 
     @Test
     public void testShouldRetrieveSeasonTeam() throws Exception {
-        FootballRequestBuilder builder = new FootballRequestBuilder("http://api.football-data.org/v1/soccerseasons/426/teams");
         FootballApi api = new FootballApi();
 
-        SeasonTeams seasonTeams = api.getResponse(builder, SeasonTeams.class);
+        SeasonTeams seasonTeams = api.getResponse("http://api.football-data.org/v1/soccerseasons/426/teams", SeasonTeams.class);
         Team team = seasonTeams.getTeams()[0];
 
         Assert.assertNotSame(0, seasonTeams.getCount());
@@ -67,10 +61,9 @@ public class FootballApiTest {
 
     @Test
     public void testShouldRetrieveSeasonFixturesForTeam() throws Exception {
-        FootballRequestBuilder builder = new FootballRequestBuilder("http://api.football-data.org/v1/teams/322/fixtures");
         FootballApi api = new FootballApi();
 
-        TeamFixtures teamFixtures = api.getResponse(builder, TeamFixtures.class);
+        TeamFixtures teamFixtures = api.getResponse("http://api.football-data.org/v1/teams/322/fixtures", TeamFixtures.class);
         Fixture fixture = teamFixtures.getFixtures()[0];
 
         Assert.assertNotSame(0, teamFixtures.getCount());

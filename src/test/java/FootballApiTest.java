@@ -3,9 +3,7 @@ import api.FootballRequestBuilder;
 import junit.framework.Assert;
 import org.junit.Test;
 
-import responses.LeagueTable;
-import responses.Season;
-import responses.Standing;
+import responses.*;
 
 public class FootballApiTest {
 
@@ -37,5 +35,20 @@ public class FootballApiTest {
         Assert.assertNotSame(0, table.getMatchday());
         Assert.assertEquals(1, standing.getPosition());
         Assert.assertNotNull(standing.getTeamName());
+    }
+
+    @Test
+    public void testShouldRetrieveFixtures() throws Exception {
+        FootballRequestBuilder builder = new FootballRequestBuilder("soccerseasons/427/fixtures");
+
+        FootballApi api = new FootballApi();
+        Fixtures fixtures = api.getResponse(builder, Fixtures.class);
+        Fixture fixture = fixtures.getFixtures()[0];
+
+        Assert.assertNotSame(0, fixtures.getCount());
+        Assert.assertNotNull(fixture);
+        Assert.assertNotNull(fixture.getHomeTeamName());
+        Assert.assertNotNull(fixture.getAwayTeamName());
+        Assert.assertNotSame(0,fixture.getMatchday());
     }
 }

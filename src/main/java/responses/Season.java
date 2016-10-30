@@ -13,5 +13,5 @@ public class Season {
     private int numberOfTeams;
     private int numberOfGames;
     private Date lastUpdated;
-
+    private Link _links;
 }

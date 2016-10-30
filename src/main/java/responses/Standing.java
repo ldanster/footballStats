@@ -1,6 +1,8 @@
 package responses;
 
 
+import responses.links.TeamLink;
+
 @lombok.Data
 public class Standing {
     private int position;
@@ -13,4 +15,5 @@ public class Standing {
     private int wins;
     private int draws;
     private int losses;
+    private Link _links;
 }

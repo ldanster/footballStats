@@ -1,7 +1,7 @@
 package responses;
 
 @lombok.Data
-public class Fixtures {
+public class SeasonFixtures {
     private int count;
     private Fixture[] fixtures;
     private Link _links;

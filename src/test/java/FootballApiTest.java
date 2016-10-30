@@ -39,13 +39,13 @@ public class FootballApiTest {
 
     @Test
     public void testShouldRetrieveFixtures() throws Exception {
-        FootballRequestBuilder builder = new FootballRequestBuilder("soccerseasons/427/fixtures");
+        FootballRequestBuilder builder = new FootballRequestBuilder("soccerseasons/427/seasonFixtures");
 
         FootballApi api = new FootballApi();
-        Fixtures fixtures = api.getResponse(builder, Fixtures.class);
-        Fixture fixture = fixtures.getFixtures()[0];
+        SeasonFixtures seasonFixtures = api.getResponse(builder, SeasonFixtures.class);
+        Fixture fixture = seasonFixtures.getFixtures()[0];
 
-        Assert.assertNotSame(0, fixtures.getCount());
+        Assert.assertNotSame(0, seasonFixtures.getCount());
         Assert.assertNotNull(fixture);
         Assert.assertNotNull(fixture.getHomeTeamName());
         Assert.assertNotNull(fixture.getAwayTeamName());

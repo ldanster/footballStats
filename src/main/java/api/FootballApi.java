@@ -5,9 +5,6 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Response;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class FootballApi {
 

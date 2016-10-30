@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import responses.LeagueTable;
 import responses.Season;
+import responses.Standing;
 
 public class FootballApiTest {
 
@@ -24,14 +25,17 @@ public class FootballApiTest {
     }
 
     @Test
-    public void testShouldRetreiveLeague() throws Exception {
+    public void testShouldRetrieveLeague() throws Exception {
         FootballRequestBuilder builder = new FootballRequestBuilder("soccerseasons/426/leagueTable");
 
         FootballApi api = new FootballApi();
 
         LeagueTable table = api.getResponse(builder, LeagueTable.class);
+        Standing standing = table.getStanding()[0];
 
         Assert.assertNotNull(table.getLeagueCaption());
         Assert.assertNotSame(0, table.getMatchday());
+        Assert.assertEquals(1, standing.getPosition());
+        Assert.assertNotNull(standing.getTeamName());
     }
 }

@@ -1,6 +1,6 @@
 package responses.links;
 
 @lombok.Data
-public class SoccerSeasonLink {
+public class NavigationLink {
     public String href;
 }

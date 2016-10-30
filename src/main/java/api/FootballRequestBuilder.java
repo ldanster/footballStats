@@ -6,8 +6,10 @@ public class FootballRequestBuilder {
 
     private String url;
 
+    private String baseUrl = "http://api.football-data.org/v1/";
+
     public FootballRequestBuilder(String url) {
-        this.url = url;
+        this.url = this.baseUrl + url;
     }
 
     public Request buildRequest() {

@@ -3,7 +3,7 @@ import java.util.Date;
 
 @lombok.Data
 public class Season {
-
+    private Link _links;
     private int id;
     private String league;
     private String caption;
@@ -13,5 +13,4 @@ public class Season {
     private int numberOfTeams;
     private int numberOfGames;
     private Date lastUpdated;
-    private Link _links;
 }

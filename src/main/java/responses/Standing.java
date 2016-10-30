@@ -3,6 +3,7 @@ package responses;
 
 @lombok.Data
 public class Standing {
+    private Link _links;
     private int position;
     private String teamName;
     private int playedGames;
@@ -13,5 +14,4 @@ public class Standing {
     private int wins;
     private int draws;
     private int losses;
-    private Link _links;
 }

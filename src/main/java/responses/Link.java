@@ -4,7 +4,6 @@ import responses.links.*;
 
 @lombok.Data
 public class Link {
-
     private NavigationLink self;
     private NavigationLink team;
     private NavigationLink soccerseason;

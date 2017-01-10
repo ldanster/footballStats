@@ -15,7 +15,7 @@ public class FootballApi {
         Response response = buildResponse(url);
 
         Gson gson = new Gson();
-        return gson.fromJson(response.body().string().toString(), model);
+        return gson.fromJson(response.body().string(), model);
     }
 
     private Response buildResponse(String url) throws IOException {

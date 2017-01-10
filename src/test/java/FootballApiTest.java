@@ -71,4 +71,16 @@ public class FootballApiTest {
         Assert.assertNotNull(fixture.getHomeTeamName());
         Assert.assertNotNull(fixture.getAwayTeamName());
     }
+
+    @Test
+    public void testShouldRetrieveAllAvailableCompetitions() throws Exception {
+        FootballApi api = new FootballApi();
+
+        Competition[] competitions = api.getResponse("http://api.football-data.org/v1/competitions", Competition[].class);
+        Competition competition = competitions[0];
+
+        Assert.assertNotSame(0, competition.getId());
+        Assert.assertNotNull(competition.getCaption());
+        Assert.assertNotNull(competition.getLeague());
+    }
 }

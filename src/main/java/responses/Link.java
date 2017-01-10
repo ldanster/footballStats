@@ -6,6 +6,7 @@ import responses.links.*;
 public class Link {
     private NavigationLink self;
     private NavigationLink team;
+    private NavigationLink teams;
     private NavigationLink soccerseason;
     private NavigationLink fixtures;
     private NavigationLink leagueTable;

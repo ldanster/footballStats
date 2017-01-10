@@ -26,9 +26,6 @@ public class App {
 
         for (Competition competition: competitions) {
 
-            if (!isValidLeague(competition.getLeague()))
-                continue;
-
             CompetitionDocument document = new CompetitionDocument(competition);
             SeasonFixtures seasonFixtures = api.getResponse(competition.get_links().getFixtures().href, SeasonFixtures.class);
 
@@ -42,14 +39,5 @@ public class App {
         }
 
         System.out.println(competitionCollection.count());
-
-    }
-
-    private static boolean isValidLeague(String leagueName) {
-//        return leagueName.equals("PL") || leagueName.equals("BL1") ||
-//                leagueName.equals("FL1") || leagueName.equals("PD") ||
-//                leagueName.equals("SA") || leagueName.equals("PPL");
-
-        return true;
     }
 }
